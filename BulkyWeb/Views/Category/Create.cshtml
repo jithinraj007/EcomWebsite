@@ -6,6 +6,11 @@
 
 }
 @model Category
+@if(TempData["success"] != null){
+    <div class="alert alert-success">
+        @TempData["success"]
+    </div>
+}}
 
 <h2>Create New Category</h2>
 
