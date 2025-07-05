@@ -7,18 +7,18 @@
 }
 @model Category
 
-<h2>Edit New Category</h2>
+<h2>Delete Category</h2>
 
 <form method="post">
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <span asp-validation-for="Name" disabled="true" class="text-danger"></span>
         <label asp-for="DisplayOrder"></label>
         <input asp-for="DisplayOrder" class="form-control" />
-        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        <span asp-validation-for="DisplayOrder" disabled="true" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-success">Update</button>
+    <button type="submit" class="btn btn-success">Delete</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
 

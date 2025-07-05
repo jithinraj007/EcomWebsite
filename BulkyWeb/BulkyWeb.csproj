@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Category\Edit.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6">
@@ -21,18 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Category\Edit.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Category\Edit.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Category\Edit.cshtml" />
   </ItemGroup>
 
 </Project>

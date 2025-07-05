@@ -1,6 +1,7 @@
 ﻿using BulkyWeb.Data;
 using BulkyWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BulkyWeb.Controllers
 {
@@ -48,6 +49,38 @@ namespace BulkyWeb.Controllers
         [HttpPost]
         public IActionResult Edit(Category obj)
         {
+            if(ModelState.IsValid != false)
+            {
+                _db.Category.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            if (Id == 0 || Id < 1 || Id == null)
+            {
+                return NotFound();
+            }
+            Category categoryFromDb = _db.Category.Find(Id);//finds the category based on Id
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int Id)
+        {
+            Category obj = _db.Category.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Category.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
